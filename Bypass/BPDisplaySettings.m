@@ -57,8 +57,9 @@
         CTFontRef boldItalicFontRef = CTFontCreateCopyWithSymbolicTraits(defaultFontRef, 0.f, NULL, traits, mask);
         assert(boldItalicFontRef != NULL);
         
-        _boldItalicFont = [self UIFontFromCTFont:defaultFontRef];
+        _boldItalicFont = [self UIFontFromCTFont:boldItalicFontRef];
         CFRelease(defaultFontRef);
+        CFRelease(boldItalicFontRef);
     }
     
     return _boldItalicFont;

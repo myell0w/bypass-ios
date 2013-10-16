@@ -317,7 +317,7 @@ NSString *const BPLinkTitleAttributeName = @"BPLinkTitleAttributeName";
     [paragraphStyle setHeadIndent:[_displaySettings paragraphHeadIndent]];
     
     NSDictionary *attributes = @{NSParagraphStyleAttributeName : paragraphStyle};
-    [target addAttributes:attributes range:effectiveRange];
+    [target addAttributes:attributes range:NSIntersectionRange(effectiveRange,NSMakeRange(0,target.length))];
 }
 
 - (int)renderListItemElement:(BPElement *)element
@@ -418,7 +418,7 @@ NSString *const BPLinkTitleAttributeName = @"BPLinkTitleAttributeName";
             break;
     }
     
-    [target addAttributes:attributes range:effectiveRange];
+    [target addAttributes:attributes range:NSIntersectionRange(effectiveRange,NSMakeRange(0,target.length))];
 }
 
 
