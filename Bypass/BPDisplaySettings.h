@@ -14,6 +14,9 @@
 @property(nonatomic) UIColor *quoteColor;
 @property(nonatomic) UIColor *codeColor;
 @property(nonatomic) UIColor *linkColor;
+@property(nonatomic) UIColor *bulletPointColor1;
+@property(nonatomic) UIColor *bulletPointColor2;
+@property(nonatomic) UIColor *bulletPointColor3;
 
 @property(nonatomic) UIFont *defaultFont;
 @property(nonatomic) UIFont *boldFont;

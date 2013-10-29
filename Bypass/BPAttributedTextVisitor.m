@@ -345,13 +345,13 @@ NSString *const BPLinkTitleAttributeName = @"BPLinkTitleAttributeName";
     
     switch (level % 3) {
         case 1:
-            bulletColor = [UIColor grayColor];
+            bulletColor = [_displaySettings bulletPointColor2];
             break;
         case 2:
-            bulletColor = [UIColor lightGrayColor];
+            bulletColor = [_displaySettings bulletPointColor3];
             break;
         default:
-            bulletColor = [UIColor blackColor];
+            bulletColor = [_displaySettings bulletPointColor1];
             break;
     }
     
