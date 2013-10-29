@@ -164,7 +164,7 @@ NSString *const BPLinkTitleAttributeName = @"BPLinkTitleAttributeName";
 {
     [self renderSpanElement:element
                    withFont:font
-                 attributes:[NSMutableDictionary dictionary]
+                 attributes:[NSMutableDictionary dictionaryWithObject:[_displaySettings defaultColor] forKey:NSForegroundColorAttributeName]
                    toTarget:target];
 }
 
@@ -221,6 +221,7 @@ NSString *const BPLinkTitleAttributeName = @"BPLinkTitleAttributeName";
 {
     NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
     attributes[NSStrikethroughStyleAttributeName] = @(1);
+    attributes[NSForegroundColorAttributeName] = [_displaySettings defaultColor];
     [self renderSpanElement:element
                    withFont:[_displaySettings defaultFont]
                  attributes:attributes
@@ -316,7 +317,7 @@ NSString *const BPLinkTitleAttributeName = @"BPLinkTitleAttributeName";
     }
     [paragraphStyle setHeadIndent:[_displaySettings paragraphHeadIndent]];
     
-    NSDictionary *attributes = @{NSParagraphStyleAttributeName : paragraphStyle};
+    NSDictionary *attributes = @{NSParagraphStyleAttributeName : paragraphStyle, NSForegroundColorAttributeName : [_displaySettings defaultColor]};
     [target addAttributes:attributes range:NSIntersectionRange(effectiveRange,NSMakeRange(0,target.length))];
 }
 
@@ -360,7 +361,7 @@ NSString *const BPLinkTitleAttributeName = @"BPLinkTitleAttributeName";
      [paragraphStyle setLineSpacing:[_displaySettings lineSpacingSmall]];
     
     NSDictionary *indentationAttributes = @{
-                                            NSFontAttributeName : [UIFont systemFontOfSize:[_displaySettings bulletIndentation]],
+                                            NSFontAttributeName : [_displaySettings.defaultFont fontWithSize:[_displaySettings bulletIndentation]],
                                             NSParagraphStyleAttributeName : paragraphStyle
                                             };
     
@@ -390,6 +391,7 @@ NSString *const BPLinkTitleAttributeName = @"BPLinkTitleAttributeName";
     [paragraphStyle setHeadIndent:[_displaySettings headerHeadIndent]];
     
     attributes[NSParagraphStyleAttributeName] = paragraphStyle;
+    attributes[NSForegroundColorAttributeName] = [_displaySettings defaultColor];
     
     // Override font weight and size attributes (but preserve all other attributes)
     
