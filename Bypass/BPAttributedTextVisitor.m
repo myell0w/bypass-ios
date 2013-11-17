@@ -238,11 +238,15 @@ NSString *const BPLinkTitleAttributeName = @"BPLinkTitleAttributeName";
                  toTarget:(NSMutableAttributedString *)target
 {
     NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
-    attributes[NSUnderlineStyleAttributeName] = @(NSUnderlineStyleSingle);
-    attributes[NSForegroundColorAttributeName] = [_displaySettings linkColor];
-    attributes[BPLinkStyleAttributeName] = element[@"link"];
-
+    NSString *linkAddress = element[@"link"];
     NSString *linkTitle = element[@"title"];
+
+    if (linkAddress != nil) {
+        attributes[NSUnderlineStyleAttributeName] = @(NSUnderlineStyleSingle);
+        attributes[NSForegroundColorAttributeName] = [_displaySettings linkColor];
+        attributes[BPLinkStyleAttributeName] = linkAddress;
+    }
+
     if (linkTitle != nil) {
         attributes[BPLinkTitleAttributeName] = linkTitle;
     }
