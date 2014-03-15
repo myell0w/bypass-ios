@@ -124,7 +124,7 @@ NSString *const BPLinkTitleAttributeName = @"BPLinkTitleAttributeName";
 #pragma mark Character Insertion
 
 - (int)insertNewlineIntoTarget:(NSMutableAttributedString*) target
-                       atIndex:(int) index
+                       atIndex:(NSUInteger) index
 {
     [target insertAttributedString:[[NSMutableAttributedString alloc] initWithString:@"\n"] atIndex:index];
     
@@ -140,7 +140,7 @@ NSString *const BPLinkTitleAttributeName = @"BPLinkTitleAttributeName";
 
 - (int)insertBulletIntoTarget:(NSMutableAttributedString*) target
                         color:(UIColor*) bulletColor
-                      atIndex:(int)index
+                      atIndex:(NSUInteger)index
 {
     NSDictionary *bulletAttributes = @{
                                        NSFontAttributeName            : [_displaySettings monospaceFont],
